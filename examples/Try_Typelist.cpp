@@ -9,6 +9,12 @@ int main()
   std::cout << etl98::Length<FloatingTypes>::value << std::endl;
   std::cout << etl98::Length<IntegerTypes>::value << std::endl;
 
+  std::cout << etl98::Contains<FloatingTypes, float>::value << std::endl;
+  std::cout << etl98::Contains<FloatingTypes, int>::value << std::endl;
+
+  std::cout << etl98::Contains<IntegerTypes, float>::value << std::endl;
+  std::cout << etl98::Contains<IntegerTypes, int>::value << std::endl;
+
   return 0;
 }
 
