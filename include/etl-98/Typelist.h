@@ -9,19 +9,19 @@ namespace etl98 {
 class NullType {};
 
 ///////////////////////////////////////////////////////////////////////////////
-// Class template TypeList
+// Class template Typelist
 //
 // Building block for typelist of any length.
 //
 // Instantiation example:
-// typedef TypeList<float, TypeList<double, NullType> > FloatTypes;
+// typedef Typelist<float, Typelist<double, NullType> > FloatTypes;
 //
 // Defines nested types:
 // * Head (first element, a non-typelist type by convention)
 // * Tail (second element, can be another typelist or NullType)
 ///////////////////////////////////////////////////////////////////////////////
 template<typename H, typename T>
-struct TypeList
+struct Typelist
 {
   H head;
   T tail;
@@ -30,7 +30,7 @@ struct TypeList
 ///////////////////////////////////////////////////////////////////////////////
 // Class template Length
 //
-// Computes the length of a TypeList.
+// Computes the length of a Typelist.
 //
 // Invocation (TList is a typelist):
 // Length<TList>::value
@@ -52,7 +52,7 @@ struct Length<NullType>
 
 // Generic implementation
 template<typename T, typename U>
-struct Length<TypeList<T, U> >
+struct Length<Typelist<T, U> >
 {
   static const int value = 1 + Length<U>::value;
 };
