@@ -1,6 +1,8 @@
 #ifndef ETL_98_TYPE_LIST_H__
 #define ETL_98_TYPE_LIST_H__
 
+#include "TypeTraits.h"
+
 namespace etl98 {
 
 // A type representing Null. Can be used to mark certain border cases.
@@ -23,8 +25,8 @@ class NullType {};
 template<typename H, typename T>
 struct Typelist
 {
-  H head;
-  T tail;
+  typedef H head;
+  typedef T tail;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -57,6 +59,32 @@ struct Length<Typelist<T, U> >
   static const int value = 1 + Length<U>::value;
 };
 
+///////////////////////////////////////////////////////////////////////////////
+// Class template Contains
+//
+// Determines whether a type T is in a given Typelist.
+//
+// Invocation (TList is a typelist):
+// Contains<TList, T>
+//
+// Returns true if T is contained in TList, false otherwise
+///////////////////////////////////////////////////////////////////////////////
+
+// Definition of template
+template<typename TList, typename T>
+struct Contains
+{
+  static const bool value =
+    IsSame<typename TList::head, T>::value       // Base case
+    || Contains<typename TList::tail, T>::value; // Recursion
+};
+
+// Specialized implementation for tail == NullType
+template<typename T>
+struct Contains<NullType, T>
+{
+  static const bool value = false; // Terminal condition
+};
 }
 
 #endif
