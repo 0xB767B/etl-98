@@ -1,0 +1,23 @@
+import os.path
+
+cpputest_lib_directory = '../libs/cpputest/lib/'
+cpputest_include_directory = '../libs/cpputest/include/'
+cpputest_lib = 'libCppUTest.a'
+
+tests_directory = './tests/'
+test_sources = Glob('./*.cpp') + Glob(tests_directory + '*.cpp')
+
+cpp_include_path = ['../include/', cpputest_include_directory]
+
+lib_path = Split(cpputest_lib_directory)
+
+env = Environment(CPPPATH=cpp_include_path)
+
+test_executable = env.Program(target='AllTests', source=test_sources,
+        LIBPATH=cpputest_lib_directory, LIBS=cpputest_lib)
+
+env.Alias('check', test_executable, './$SOURCE')
+
+
+# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4 filetype=python
+#
