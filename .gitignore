@@ -2,4 +2,5 @@
 test/.sconsign.dblite
 *.swp
 *.out
+*.o
 
