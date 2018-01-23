@@ -39,7 +39,7 @@ TEST(Typelist, ContainsIsCorrectForAllTypesInList)
   CHECK_EQUAL(contains, true);
 }
 
-TEST(Typelist, ContainsIsCorrectForTypeNotInLis)
+TEST(Typelist, ContainsIsCorrectForTypeNotInList)
 {
   bool contains = etl98::TypelistOps::Contains<ListOfIntegers, float>::value;
   CHECK_EQUAL(contains, false);
