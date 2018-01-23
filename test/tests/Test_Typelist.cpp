@@ -20,27 +20,27 @@ typedef etl98::Typelist<int, etl98::Typelist<int, etl98::Typelist<int, etl98::Nu
 typedef etl98::Typelist<char, etl98::Typelist<short, etl98::Typelist<int, etl98::NullType> > > ListOfIntegers;
 TEST(Typelist, LengthIsCorrect)
 {
-  int length = etl98::Length<ListOfIntOfLength1>::value;
+  int length = etl98::TypelistOps::Length<ListOfIntOfLength1>::value;
   CHECK_EQUAL(length, 1);
 
-  length = etl98::Length<ListOfIntOfLength2>::value;
+  length = etl98::TypelistOps::Length<ListOfIntOfLength2>::value;
   CHECK_EQUAL(length, 2);
-  length = etl98::Length<ListOfIntOfLength3>::value;
+  length = etl98::TypelistOps::Length<ListOfIntOfLength3>::value;
   CHECK_EQUAL(length, 3);
 }
 
 TEST(Typelist, ContainsIsCorrectForAllTypesInList)
 {
-  bool contains = etl98::Contains<ListOfIntegers, char>::value;
+  bool contains = etl98::TypelistOps::Contains<ListOfIntegers, char>::value;
   CHECK_EQUAL(contains, true);
-  contains = etl98::Contains<ListOfIntegers, short>::value;
+  contains = etl98::TypelistOps::Contains<ListOfIntegers, short>::value;
   CHECK_EQUAL(contains, true);
-  contains = etl98::Contains<ListOfIntegers, int>::value;
+  contains = etl98::TypelistOps::Contains<ListOfIntegers, int>::value;
   CHECK_EQUAL(contains, true);
 }
 
 TEST(Typelist, ContainsIsCorrectForTypeNotInLis)
 {
-  bool contains = etl98::Contains<ListOfIntegers, float>::value;
+  bool contains = etl98::TypelistOps::Contains<ListOfIntegers, float>::value;
   CHECK_EQUAL(contains, false);
 }

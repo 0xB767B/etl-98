@@ -41,6 +41,9 @@ struct Typelist
 // end-terminator is not counted (by convention of type NullType).
 ///////////////////////////////////////////////////////////////////////////////
 
+namespace TypelistOps
+{
+
 // Definition of template
 template<typename TList>
 struct Length;
@@ -85,6 +88,9 @@ struct Contains<NullType, T>
 {
   static const bool value = false; // Terminal condition
 };
+
+}
+
 }
 
 #endif
