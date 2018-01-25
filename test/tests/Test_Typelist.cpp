@@ -13,16 +13,10 @@ TEST_GROUP(Typelist)
   }
 };
 
-//typedef etl98::Typelist<int, etl98::NullType> ListOfIntOfLength1;
-//typedef etl98::Typelist<int, etl98::Typelist<int, etl98::NullType> > ListOfIntOfLength2;
-//typedef etl98::Typelist<int, etl98::Typelist<int, etl98::Typelist<int, etl98::NullType> > > ListOfIntOfLength3;
-//typedef etl98::Typelist<char, etl98::Typelist<short, etl98::Typelist<int, etl98::NullType> > > ListOfIntegers;
-
 typedef etl98::TypelistOps::MakeTypelist<int>::Result ListOfIntOfLength1;
 typedef etl98::TypelistOps::MakeTypelist<int, int>::Result ListOfIntOfLength2;
 typedef etl98::TypelistOps::MakeTypelist<int, int, int>::Result ListOfIntOfLength3;
 typedef etl98::TypelistOps::MakeTypelist<char, short, int>::Result ListOfIntegers;
-
 
 TEST(Typelist, LengthIsCorrect)
 {
