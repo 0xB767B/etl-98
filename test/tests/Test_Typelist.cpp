@@ -13,16 +13,21 @@ TEST_GROUP(Typelist)
   }
 };
 
-typedef etl98::Typelist<int, etl98::NullType> ListOfIntOfLength1;
-typedef etl98::Typelist<int, etl98::Typelist<int, etl98::NullType> > ListOfIntOfLength2;
-typedef etl98::Typelist<int, etl98::Typelist<int, etl98::Typelist<int, etl98::NullType> > > ListOfIntOfLength3;
+//typedef etl98::Typelist<int, etl98::NullType> ListOfIntOfLength1;
+//typedef etl98::Typelist<int, etl98::Typelist<int, etl98::NullType> > ListOfIntOfLength2;
+//typedef etl98::Typelist<int, etl98::Typelist<int, etl98::Typelist<int, etl98::NullType> > > ListOfIntOfLength3;
+//typedef etl98::Typelist<char, etl98::Typelist<short, etl98::Typelist<int, etl98::NullType> > > ListOfIntegers;
 
-typedef etl98::Typelist<char, etl98::Typelist<short, etl98::Typelist<int, etl98::NullType> > > ListOfIntegers;
+typedef etl98::TypelistOps::MakeTypelist<int>::Result ListOfIntOfLength1;
+typedef etl98::TypelistOps::MakeTypelist<int, int>::Result ListOfIntOfLength2;
+typedef etl98::TypelistOps::MakeTypelist<int, int, int>::Result ListOfIntOfLength3;
+typedef etl98::TypelistOps::MakeTypelist<char, short, int>::Result ListOfIntegers;
+
+
 TEST(Typelist, LengthIsCorrect)
 {
   int length = etl98::TypelistOps::Length<ListOfIntOfLength1>::value;
   CHECK_EQUAL(length, 1);
-
   length = etl98::TypelistOps::Length<ListOfIntOfLength2>::value;
   CHECK_EQUAL(length, 2);
   length = etl98::TypelistOps::Length<ListOfIntOfLength3>::value;
@@ -44,3 +49,10 @@ TEST(Typelist, ContainsIsCorrectForTypeNotInList)
   bool contains = etl98::TypelistOps::Contains<ListOfIntegers, float>::value;
   CHECK_EQUAL(contains, false);
 }
+
+TEST(Typelist, ContainsReturnsFalseForNullType)
+{
+  bool contains = etl98::TypelistOps::Contains<ListOfIntegers, etl98::NullType>::value;
+  CHECK_EQUAL(false, contains);
+}
+

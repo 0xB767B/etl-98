@@ -21,12 +21,50 @@ class NullType {};
 // Defines nested types:
 // * Head (first element, a non-typelist type by convention)
 // * Tail (second element, can be another typelist or NullType)
+//
+// Note: You should not instantiate Typelists as explained in the instantiation
+//       example. Use Typelistops::MakeTypelist instead!
 ///////////////////////////////////////////////////////////////////////////////
 template<typename H, typename T>
 struct Typelist
 {
   typedef H head;
   typedef T tail;
+};
+
+namespace TypelistOps
+{
+
+///////////////////////////////////////////////////////////////////////////////
+// Class template MakeTypelist
+//
+// Build a Typelist of types passed as arguments.
+template<typename T0  = NullType, typename T1  = NullType, 
+         typename T2  = NullType, typename T3  = NullType, 
+         typename T4  = NullType, typename T5  = NullType,
+         typename T6  = NullType, typename T7  = NullType, 
+         typename T8  = NullType, typename T9  = NullType, 
+         typename T10 = NullType, typename T11 = NullType,
+         typename T12 = NullType, typename T13 = NullType, 
+         typename T14 = NullType, typename T15 = NullType, 
+         typename T16 = NullType, typename T17 = NullType,
+         typename T18 = NullType, typename T19 = NullType
+         >
+struct MakeTypelist
+{
+private:
+  typedef typename MakeTypelist<T1, T2, T3, T4, T5, 
+                                T6, T7, T8, T9, T10,
+                                T11, T12, T13, T14, T15, 
+                                T16, T17, T18, T19>::Result TailResult;
+public:
+  typedef Typelist<T0, TailResult> Result;
+};
+
+template<>
+struct MakeTypelist<>
+{
+  typedef NullType Result;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -41,9 +79,6 @@ struct Typelist
 // end-terminator is not counted (by convention of type NullType).
 ///////////////////////////////////////////////////////////////////////////////
 
-namespace TypelistOps
-{
-
 // Definition of template
 template<typename TList>
 struct Length;
@@ -56,6 +91,9 @@ struct Length<NullType>
 };
 
 // Generic implementation
+//template<typename T, typename U>
+//struct Length<Typelist<T, U> >
+
 template<typename T, typename U>
 struct Length<Typelist<T, U> >
 {
