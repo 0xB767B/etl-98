@@ -39,6 +39,7 @@ namespace TypelistOps
 // Class template MakeTypelist
 //
 // Build a Typelist of types passed as arguments.
+///////////////////////////////////////////////////////////////////////////////
 template<typename T0  = NullType, typename T1  = NullType, 
          typename T2  = NullType, typename T3  = NullType, 
          typename T4  = NullType, typename T5  = NullType,
@@ -91,9 +92,6 @@ struct Length<NullType>
 };
 
 // Generic implementation
-//template<typename T, typename U>
-//struct Length<Typelist<T, U> >
-
 template<typename T, typename U>
 struct Length<Typelist<T, U> >
 {
