@@ -1,5 +1,9 @@
 .venv/
 test/.sconsign.dblite
+coverage-report/
+coverage.info
+*.gcda
+*.gcno
 *.swp
 *.out
 *.o
