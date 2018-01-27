@@ -1,20 +1,15 @@
 import os.path
 
-cpputest_lib_directory = '../libs/cpputest/lib/'
-cpputest_include_directory = '../libs/cpputest/include/'
-cpputest_lib = 'libCppUTest.a'
 
 tests_directory = './tests/'
 test_sources = Glob('./*.cpp') + Glob(tests_directory + '*.cpp')
 
-cpp_include_path = ['../include/', cpputest_include_directory]
-
-lib_path = Split(cpputest_lib_directory)
+cpp_include_path = ['../include/', '../libs/Catch2/single_include']
 
 env = Environment(CPPPATH=cpp_include_path)
+env.Append(CXXFLAGS='-std=c++98')
 
-test_executable = env.Program(target='AllTests', source=test_sources,
-        LIBPATH=cpputest_lib_directory, LIBS=cpputest_lib)
+test_executable = env.Program(target='run-tests', source=test_sources)
 
 env.Alias('check', test_executable, './$SOURCE')
 
