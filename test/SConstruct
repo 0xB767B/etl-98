@@ -4,7 +4,7 @@ import os.path
 tests_directory = './tests/'
 test_sources = Glob('./*.cpp') + Glob(tests_directory + '*.cpp')
 
-cpp_include_path = ['../include/', '../libs/Catch2/single_include']
+cpp_include_path = ['../include/', '../lib/Catch2/single_include']
 
 env = Environment(CPPPATH=cpp_include_path)
 env.Append(CXXFLAGS='-std=c++98')
