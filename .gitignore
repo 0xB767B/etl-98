@@ -4,6 +4,7 @@ coverage-report/
 coverage.info
 *.gcda
 *.gcno
+test/compile_commands.json
 *.swp
 *.out
 *.o
