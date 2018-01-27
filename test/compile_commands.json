@@ -1,0 +1,67 @@
+[
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-I/home/borealis/work/etl-98/include",
+            "-I/home/borealis/work/etl-98/libs/cpputest/include",
+            "-o",
+            "AllTest.o",
+            "AllTest.cpp"
+        ],
+        "directory": "/home/borealis/work/etl-98/test",
+        "file": "AllTest.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-I/home/borealis/work/etl-98/include",
+            "-I/home/borealis/work/etl-98/libs/cpputest/include",
+            "-o",
+            "tests/Test_TypeTraits.o",
+            "tests/Test_TypeTraits.cpp"
+        ],
+        "directory": "/home/borealis/work/etl-98/test",
+        "file": "tests/Test_TypeTraits.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-I/home/borealis/work/etl-98/include",
+            "-I/home/borealis/work/etl-98/libs/cpputest/include",
+            "-o",
+            "tests/Test_Array.o",
+            "tests/Test_Array.cpp"
+        ],
+        "directory": "/home/borealis/work/etl-98/test",
+        "file": "tests/Test_Array.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-I/home/borealis/work/etl-98/include",
+            "-I/home/borealis/work/etl-98/libs/cpputest/include",
+            "-o",
+            "tests/Test_Dummy.o",
+            "tests/Test_Dummy.cpp"
+        ],
+        "directory": "/home/borealis/work/etl-98/test",
+        "file": "tests/Test_Dummy.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-I/home/borealis/work/etl-98/include",
+            "-I/home/borealis/work/etl-98/libs/cpputest/include",
+            "-o",
+            "tests/Test_Typelist.o",
+            "tests/Test_Typelist.cpp"
+        ],
+        "directory": "/home/borealis/work/etl-98/test",
+        "file": "tests/Test_Typelist.cpp"
+    }
+]
