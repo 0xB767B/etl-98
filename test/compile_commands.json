@@ -4,8 +4,45 @@
             "c++",
             "-c",
             "-std=c++98",
+            "-fprofile-arcs",
+            "-ftest-coverage",
+            "--coverage",
             "-I/home/borealis/work/etl-98/include",
-            "-I/home/borealis/work/etl-98/libs/Catch2/single_include",
+            "-I/home/borealis/work/etl-98/lib/Catch2/single_include",
+            "-o",
+            "tests/Test_Typelist.o",
+            "tests/Test_Typelist.cpp"
+        ],
+        "directory": "/home/borealis/work/etl-98/test",
+        "file": "tests/Test_Typelist.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-std=c++98",
+            "-fprofile-arcs",
+            "-ftest-coverage",
+            "--coverage",
+            "-I/home/borealis/work/etl-98/include",
+            "-I/home/borealis/work/etl-98/lib/Catch2/single_include",
+            "-o",
+            "tests/Test_Array.o",
+            "tests/Test_Array.cpp"
+        ],
+        "directory": "/home/borealis/work/etl-98/test",
+        "file": "tests/Test_Array.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-std=c++98",
+            "-fprofile-arcs",
+            "-ftest-coverage",
+            "--coverage",
+            "-I/home/borealis/work/etl-98/include",
+            "-I/home/borealis/work/etl-98/lib/Catch2/single_include",
             "-o",
             "TestMain.o",
             "TestMain.cpp"
@@ -18,27 +55,16 @@
             "c++",
             "-c",
             "-std=c++98",
+            "-fprofile-arcs",
+            "-ftest-coverage",
+            "--coverage",
             "-I/home/borealis/work/etl-98/include",
-            "-I/home/borealis/work/etl-98/libs/Catch2/single_include",
+            "-I/home/borealis/work/etl-98/lib/Catch2/single_include",
             "-o",
             "tests/Test_TypeTraits.o",
             "tests/Test_TypeTraits.cpp"
         ],
         "directory": "/home/borealis/work/etl-98/test",
         "file": "tests/Test_TypeTraits.cpp"
-    },
-    {
-        "arguments": [
-            "c++",
-            "-c",
-            "-std=c++98",
-            "-I/home/borealis/work/etl-98/include",
-            "-I/home/borealis/work/etl-98/libs/Catch2/single_include",
-            "-o",
-            "tests/Test_Typelist.o",
-            "tests/Test_Typelist.cpp"
-        ],
-        "directory": "/home/borealis/work/etl-98/test",
-        "file": "tests/Test_Typelist.cpp"
     }
 ]
