@@ -7,5 +7,4 @@ scons -c
 scons check
 lcov --capture --no-external --directory . --directory ../include --output-file coverage.info
 genhtml coverage.info --css-file solarized-dark.css --output-directory coverage-report
-chromium coverage-report/index.html
 
