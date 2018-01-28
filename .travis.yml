@@ -1,5 +1,9 @@
 language: cpp
 sudo: false
+addons:
+    apt:
+        packages:
+            - lcov
 python:
   - "3.6.4"
 before_install:
