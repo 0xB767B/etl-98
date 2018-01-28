@@ -2,6 +2,7 @@
 test/.sconsign.dblite
 coverage-report/
 coverage.info
+*.gcov
 *.gcda
 *.gcno
 test/compile_commands.json
