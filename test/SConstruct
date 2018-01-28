@@ -10,7 +10,7 @@ env = Environment(CPPPATH=cpp_include_path)
 env.Append(CXXFLAGS='-g -std=c++98 -fprofile-arcs -ftest-coverage --coverage',
            LINKFLAGS='-lgcov --coverage')
 
-test_executable = env.Program(target='run-tests', source=test_sources)
+test_executable = env.Program(target='run-tests', LIBS='gcov', source=test_sources)
 
 env.Alias('check', test_executable, './$SOURCE')
 
