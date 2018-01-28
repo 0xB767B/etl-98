@@ -10,8 +10,6 @@ before_install:
   - which "python"
   - python -c "import sys; print sys.path"
   - pip install --user cpp-coveralls
-before_script:
-  - scons --version
 script:
   - cd test
   - scons check
