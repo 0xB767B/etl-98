@@ -15,5 +15,5 @@ script:
   - scons check
   - lcov --capture --no-external --directory . --output-file coverage.info
 after_success:
-  - codcov
+  - codecov
 
