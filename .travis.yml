@@ -6,6 +6,7 @@ before_install:
   - which "python"
   - python -c "import sys; print sys.path"
 install:
+  - easy_install distribute
   - pip install --upgrade pip
   - pip install -r requirements.txt
 before_script:
