@@ -7,7 +7,7 @@ test_sources = Glob('./*.cpp') + Glob(tests_directory + '*.cpp')
 cpp_include_path = ['../include/', '../lib/Catch2/single_include']
 
 env = Environment(CPPPATH=cpp_include_path)
-env.Append(CXXFLAGS='-std=c++98 -fprofile-arcs -ftest-coverage --coverage',
+env.Append(CXXFLAGS='-g -std=c++98 -fprofile-arcs -ftest-coverage --coverage',
            LINKFLAGS='-lgcov --coverage')
 
 test_executable = env.Program(target='run-tests', source=test_sources)
