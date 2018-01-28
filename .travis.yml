@@ -1,0 +1,16 @@
+language: cpp
+sudo: false
+python:
+  - "3.6.4"
+before_install:
+  - which "python"
+  - python -c "import sys; print sys.path"
+install:
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+before_script:
+  - scons --version
+script:
+  - cd test
+  - scons check
+  - ./generate-coverage-report.sh
