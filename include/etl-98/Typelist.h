@@ -107,6 +107,10 @@ struct Length<Typelist<T, U> >
 // Contains<TList, T>
 //
 // Returns true if T is contained in TList, false otherwise
+//
+// Inspired by: 
+// https://stackoverflow.com/questions/7704589/basic-typelist-functionality
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 // Definition of template
